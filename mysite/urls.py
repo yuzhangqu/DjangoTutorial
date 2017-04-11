@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from flash import views
 
 urlpatterns = [
+	url(r'^wuhan/', views.wuhan, name='wuhan'),
+	url(r'^hubei/', views.index, name='hubei'),
+	url(r'^show/', views.show, name='show'),
 	url(r'^flash/', include('flash.urls')),
     url(r'^admin/', admin.site.urls),
 ]
