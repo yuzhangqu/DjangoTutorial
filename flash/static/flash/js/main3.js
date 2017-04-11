@@ -1,16 +1,18 @@
 var countStrs = ["③", "②", "①"];
 var quiz1 = new Group(3, 10, 1, 0, 10);
-var quiz2 = new Group(3, 10, 1, 5, 10);
+var quiz2 = new Group(3, 10, 1, 0, 10);
+var quiz3 = new Group(3, 10, 1, 5, 10);
 var index = 1;
 var quiz;
 
 function init() {
     index = 1;
-    quiz = quiz1;
     quiz1.nums = [784, 919, 159, 259, 346, 499, 376, 934, 182, 595];
     quiz1.answer = 5053;
-    quiz2.nums = [585, 535, -177, 404, -286, 947, -658, -355, 751, -926];
-    quiz2.answer = 820;
+    quiz2.nums = [607, 976, 745, 658, 701, 249, 210, 543, 567, 635];
+    quiz2.answer = 5891;
+    quiz3.nums = [585, 535, -177, 404, -286, 947, -658, -355, 751, -926];
+    quiz3.answer = 820;
 }
 
 
@@ -66,11 +68,16 @@ function go() {
     }
 
     if (index == 1) {
-        index = 2;
         quiz = quiz1;
+        index = 2;
     } else if (index == 2) {
-        index = 1;
         quiz = quiz2;
+        index = 3;
+    } else if (index == 3) {
+        quiz = quiz3;
+        index = 1;
+    } else {
+
     }
 
     $("#go").addClass("disabled");
