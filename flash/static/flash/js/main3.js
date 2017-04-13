@@ -1,7 +1,7 @@
 var countStrs = ["③", "②", "①"];
-var quiz1 = new Group(3, 10, 1, 0, 10);
-var quiz2 = new Group(3, 10, 1, 0, 10);
-var quiz3 = new Group(3, 10, 1, 5, 10);
+var quiz1 = new Group(3, 10, 1, 0, 1);
+var quiz2 = new Group(3, 10, 1, 0, 1);
+var quiz3 = new Group(3, 10, 1, 5, 1);
 var index = 1;
 var quiz;
 
@@ -70,17 +70,24 @@ function go() {
     if (index == 1) {
         quiz = quiz1;
         index = 2;
+        $("#go").addClass("disabled");
+        $(".fa").addClass("fa-spin");
+        setTimeout(repeat(0, 3, 1000, showCount), 0);
     } else if (index == 2) {
         quiz = quiz2;
         index = 3;
+        $("#go").addClass("disabled");
+        $(".fa").addClass("fa-spin");
+        setTimeout(repeat(0, 3, 1000, showCount), 0);
     } else if (index == 3) {
         quiz = quiz3;
-        index = 1;
+        index = 4;
+        $("#go").addClass("disabled");
+        $(".fa").addClass("fa-spin");
+        setTimeout(repeat(0, 3, 1000, showCount), 0);
     } else {
 
     }
 
-    $("#go").addClass("disabled");
-    $(".fa").addClass("fa-spin");
-    setTimeout(repeat(0, 3, 1000, showCount), 0);
+
 }
