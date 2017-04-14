@@ -13,33 +13,52 @@
 </head>
 
 <body class="fullheight" onload="init();">
-    <div class="card card-inverse text-center fullheight" style="background-color: #333; border-color: #333;">
+    <div class="card card-inverse text-center fullheight blackwhite">
         <div class="card-block" style="display: flex;" onclick="showAnswer();">
-            <h1 class="card-text" style="margin: auto; font-size: 27vw; font-family: Times"></h1>
+            <h1 class="card-text" style="margin: auto; font-size: 27vw; font-family: Times; color: #FFF"></h1>
         </div>
-        <div class="container" style="margin: auto; font-size: 5em; font-family: Times" hidden>
+        <div class="container" style="margin: auto; font-size: 6em; font-family: Times">
             <div class="row">
-                <div class="col align-right">1,234</div>
-                <div class="col align-self-end">1,234</div>
-                <div class="w-100"></div>
-                <div class="col align-self-end">+1,234</div>
-                <div class="col align-self-end">+1,234</div>
-                <div class="w-100"></div>
-                <div class="col align-self-end">+1,234</div>
-                <div class="col align-self-end">+1,234</div>
-                <div class="w-100"></div>
-                <div class="col align-self-end">+1,234</div>
-                <div class="col align-self-end">+1,234</div>
-                <div class="w-100"></div>
-                <div class="col align-self-end">+1,234</div>
-                <div class="col align-self-end">+1,234</div>
+                <div class="col-4 text-right inputnumber"></div>
+                <div class="col-5 text-right inputnumber"></div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-4 text-right inputnumber"></div>
+                <div class="col-5 text-right inputnumber"></div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-4 text-right inputnumber"></div>
+                <div class="col-5 text-right inputnumber"></div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-4 text-right inputnumber"></div>
+                <div class="col-5 text-right inputnumber"></div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-4 text-right inputnumber"></div>
+                <div class="col-5 text-right inputnumber"></div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-7 answer"></div>
+                <div class="col-3"></div>
             </div>
         </div>
         <div class="card-footer text-muted">
-            <div class="row">
+            <div class="row" id="rowgo">
                 <div class="col">
                     <button id="go" type="button" class="btn btn-outline-danger" onclick="go();"><i class="fa fa-3x fa-play-circle-o" aria-hidden="true"></i></button>
                 </div>
+            </div>
+            <div class="input-group" id="rowinput">
+                <span class="input-group-addon blackwhite"><i class="fa fa-2x fa-circle-o-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control blackgrey" type="text" id="idinput">
+                <button type="button" class="btn btn-outline-success" onclick="calc();"><i class="fa fa-calculator fa-fw" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
