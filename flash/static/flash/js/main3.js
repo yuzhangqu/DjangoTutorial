@@ -1,18 +1,15 @@
 var countStrs = ["③", "②", "①"];
-var quiz1 = new Group(3, 10, 1, 0, 1);
-var quiz2 = new Group(3, 10, 1, 0, 1);
-var quiz3 = new Group(3, 10, 1, 5, 1);
+var quiz1 = new Group(3, 20, 1, 0, 20);
+var quiz2 = new Group(3, 20, 1, 10, 20);
 var index = 1;
 var quiz;
 
 function init() {
     index = 1;
-    quiz1.nums = [784, 919, 159, 259, 346, 499, 376, 934, 182, 595];
-    quiz1.answer = 5053;
-    quiz2.nums = [607, 976, 745, 658, 701, 249, 210, 543, 567, 635];
-    quiz2.answer = 5891;
-    quiz3.nums = [585, 535, -177, 404, -286, 947, -658, -355, 751, -926];
-    quiz3.answer = 820;
+    quiz1.nums = [922, 323, 599, 319, 633, 207, 369, 255, 630, 714, 334, 892, 625, 194, 734, 914, 501, 360, 507, 892];
+    quiz1.answer = 10924;
+    quiz2.nums = [179, 638, 802, -596, -398, 709, -454, -399, 360, 854, -274, 610, 176, 128, -825, 235, -141, -616, -585, -352];
+    quiz2.answer = 51;
 }
 
 
@@ -80,14 +77,8 @@ function go() {
         $(".fa").addClass("fa-spin");
         setTimeout(repeat(0, 3, 1000, showCount), 0);
     } else if (index == 3) {
-        quiz = quiz3;
-        index = 4;
-        $("#go").addClass("disabled");
-        $(".fa").addClass("fa-spin");
-        setTimeout(repeat(0, 3, 1000, showCount), 0);
+
     } else {
-
+        return false;
     }
-
-
 }
