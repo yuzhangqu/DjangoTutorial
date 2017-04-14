@@ -72,7 +72,7 @@ function go() {
         setTimeout(repeat(0, 3, 1000, showCount), 0);
     } else if (index == 2) {
         quiz = quiz2;
-        index = 3;
+        index = 1;
         $("#go").addClass("disabled");
         $(".fa").addClass("fa-spin");
         setTimeout(repeat(0, 3, 1000, showCount), 0);
