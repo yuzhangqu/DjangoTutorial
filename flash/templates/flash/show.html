@@ -14,8 +14,9 @@
 
 <body class="fullheight" onload="init();">
     <div class="card card-inverse text-center fullheight blackwhite">
-        <div class="card-block" style="display: flex;" onclick="showAnswer();">
-            <h1 class="card-text" style="margin: auto; font-size: 27vw; font-family: Times; color: #FFF"></h1>
+        <div class="card-header" style="font-size: 5vw"></div>
+        <div class="card-block" style="display: flex;">
+            <h1 class="card-text" style="margin: auto; font-size: 40vw; font-family: Times; color: #FFF"></h1>
         </div>
         <div class="container" style="margin: auto; font-size: 6em; font-family: Times">
             <div class="row">
@@ -53,7 +54,7 @@
             <div class="row" id="rowgo">
                 <div class="col">
                     <button id="go" type="button" class="btn btn-outline-danger" onclick="go();"><i class="fa fa-3x fa-play-circle-o" aria-hidden="true"></i></button>
-                    <a id="saveanswer" class="btn btn-outline-danger" href="data:text/plain;base64,MTIzIDEyMyAxMjM=" download="answer.txt"><i class="fa fa-3x fa-file-text-o" aria-hidden="true"></i></a>
+                    <a id="saveanswer" class="btn btn-outline-danger" download="answer.csv" href="#" onclick="readytogo();"><i class="fa fa-3x fa-file-text-o" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="input-group" id="rowinput">

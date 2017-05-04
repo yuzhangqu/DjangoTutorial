@@ -1,21 +1,42 @@
 var countStrs = ["③", "②", "①"];
-var quiz1 = new Group(3, 20, 1, 0, 20);
-var quiz2 = new Group(3, 20, 1, 10, 20);
-var index = 1;
+var index;
+var quizArray;
 var quiz;
 var inputindex;
 var calcanswer;
 
 function init() {
+    index = 0;
+    quizArray = [];
+    quizArray.push(new Group(1, 7, 1, 0, 5.6));
+    quizArray.push(new Group(1, 7, 1, 3, 5.6));
+    quizArray.push(new Group(1, 9, 1, 0, 7.2));
+    quizArray.push(new Group(1, 9, 1, 4, 7.2));
+    quizArray.push(new Group(1, 10, 1, 0, 8));
+    quizArray.push(new Group(1, 10, 1, 5, 8));
+    quizArray.push(new Group(2, 7, 1, 0, 6.3));
+    quizArray.push(new Group(2, 7, 1, 3, 6.3));
+    quizArray.push(new Group(2, 9, 1, 0, 8.1));
+    quizArray.push(new Group(2, 9, 1, 4, 8.1));
+    quizArray.push(new Group(2, 10, 1, 0, 9));
+    quizArray.push(new Group(2, 10, 1, 5, 9));
+    quizArray.push(new Group(3, 5, 1, 0, 5));
+    quizArray.push(new Group(3, 5, 1, 2, 5));
+    quizArray.push(new Group(3, 10, 1, 0, 10));
+    quizArray.push(new Group(3, 10, 1, 5, 10));
+    var content = "题号,答案";
+    quizArray.forEach(function(item, index, array) {
+        item.generate(1);
+        content += "\n" + (index + 1) + "," + item.answer;
+    });
+    $("#saveanswer").attr("href", "data:application/csv;charset=UTF-8," + encodeURI(content));
+    showTitle();
+
+    $("#go").hide();
     $(".container").hide();
     $("#rowinput").hide();
-    index = 1;
     inputindex = 0;
     calcanswer = 0;
-    quiz1.nums = [922, 323, 599, 319, 633, 207, 369, 255, 630, 714, 334, 892, 625, 194, 734, 914, 501, 360, 507, 892];
-    quiz1.answer = 10924;
-    quiz2.nums = [179, 638, 802, -596, -398, 709, -454, -399, 360, 854, -274, 610, 176, 128, -825, 235, -141, -616, -585, -352];
-    quiz2.answer = 51;
     $('#idinput').keypress(function(event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
@@ -68,7 +89,13 @@ function showAnswer() {
 }
 
 function showTitle() {
-    $(".card-header").text(headText + " " + digitStrs[digitVal] + " " + numStrs[numVal] + " " + mixStrs[mixIndex]);
+    $(".card-header").text("武汉市珠心算选拔赛 - 第" + (index + 1) + "题");
+}
+
+function readytogo() {
+    $("#go").show();
+    $("#saveanswer").hide();
+    return true;
 }
 
 function go() {
@@ -76,26 +103,21 @@ function go() {
         return false;
     }
 
-    if (index == 1) {
-        quiz = quiz1;
-        index = 2;
+    if (index < 16) {
+        showTitle();
+        quiz = quizArray[index];
+        index++;
         $("#go").addClass("disabled");
         $(".fa-play-circle-o").addClass("fa-spin");
         setTimeout(repeat(0, 3, 1000, showCount), 0);
-    } else if (index == 2) {
-        quiz = quiz2;
-        index = 3;
-        $("#go").addClass("disabled");
-        $(".fa-play-circle-o").addClass("fa-spin");
-        setTimeout(repeat(0, 3, 1000, showCount), 0);
-    } else if (index == 3) {
-        $(".card-block").hide();
-        $("#rowgo").hide();
-        $(".container").show();
-        $("#rowinput").show();
     } else {
         return false;
     }
+
+    //$(".card-block").hide();
+    //$("#rowgo").hide();
+    //$(".container").show();
+    //$("#rowinput").show();
 }
 
 function addin() {
