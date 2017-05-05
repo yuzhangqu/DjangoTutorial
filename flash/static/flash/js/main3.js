@@ -29,7 +29,7 @@ function init() {
         item.generate(1);
         content += item.answer;
         if (index == 7) {
-            content += "\n第9题,第10题,第11题,第12题,第13题,第14题,第15题,第16题";
+            content += "\n第9题,第10题,第11题,第12题,第13题,第14题,第15题,第16题\n";
         } else if (index != 15) {
             content += ",";
         }
