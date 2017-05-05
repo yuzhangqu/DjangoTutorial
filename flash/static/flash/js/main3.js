@@ -24,10 +24,15 @@ function init() {
     quizArray.push(new Group(3, 5, 1, 2, 5));
     quizArray.push(new Group(3, 10, 1, 0, 10));
     quizArray.push(new Group(3, 10, 1, 5, 10));
-    var content = "题号,答案";
+    var content = "第1题,第2题,第3题,第4题,第5题,第6题,第7题,第8题\n";
     quizArray.forEach(function(item, index, array) {
         item.generate(1);
-        content += "\n" + (index + 1) + "," + item.answer;
+        content += item.answer;
+        if (index == 7) {
+            content += "\n第9题,第10题,第11题,第12题,第13题,第14题,第15题,第16题";
+        } else if (index != 15) {
+            content += ",";
+        }
     });
     $("#saveanswer").attr("href", "data:application/csv;charset=UTF-8," + encodeURI(content));
     showTitle();
