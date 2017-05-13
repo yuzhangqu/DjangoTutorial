@@ -4,6 +4,7 @@ function Group(digits, total, mix, negative, time) {
     this.mix = mix;
     this.negative = negative;
     this.nums = new Array(total);
+    this.generator = new Array();
     this.millisec = time * 1000;
     this.answer = 0;
 }
@@ -11,6 +12,8 @@ function Group(digits, total, mix, negative, time) {
 Group.prototype.generate = function(qIndex) {
     do {
         var index = 0;
+        this.generator.splice(0, this.generator.length);
+
         if (qIndex >= this.mix) {
             for (var i = 0; i < this.total - this.negative; i++) {
                 this.nums[index++] = this.nextPositiveInt();
@@ -38,9 +41,18 @@ Group.prototype.generate = function(qIndex) {
 }
 
 Group.prototype.nextPositiveInt = function() {
-    var hi = Math.pow(10, this.digits);
-    var lo = Math.pow(10, this.digits - 1);
-    return Math.floor(Math.random() * (hi - lo)) + lo;
+    if (this.generator.length == 0) {
+        for (var i = Math.pow(10, this.digits - 1); i < Math.pow(10, this.digits); i++) {
+            this.generator.push(i);
+        }
+        for (var i = this.generator.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = this.generator[i];
+            this.generator[i] = this.generator[j];
+            this.generator[j] = temp;
+        }
+    }
+    return this.generator.pop();
 }
 
 Group.prototype.nextNegativeInt = function() {
