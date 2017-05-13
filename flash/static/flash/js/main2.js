@@ -1,10 +1,9 @@
 var countStrs = ["③", "②", "①"];
-var digitStrs = ["0位数", "1位数", "2位数", "3位数"];
-var numStrs = ["0笔", "1笔", "2笔", "3笔", "4笔", "5笔", "6笔", "7笔", "8笔", "9笔", "10笔"];
+var timegap = [1, 0.8, 0.9, 1, 1.1];
 var mixStrs = ["纯加", "混合"];
 var headText = "闪电心算 -";
 var digitVal = 1;
-var numVal = 3;
+var numVal = 10;
 var mixIndex = 0;
 var mixVal = 0;
 
@@ -79,14 +78,14 @@ function showAnswer() {
 }
 
 function showTitle() {
-    $(".card-header").text(headText + " " + digitStrs[digitVal] + " " + numStrs[numVal] + " " + mixStrs[mixIndex]);
+    $(".card-header").text(headText + " " + digitVal + "位数 " + numVal + "笔 " + mixStrs[mixIndex]);
 }
 
 function go() {
     if ($("#go").hasClass("disabled")) {
         return false;
     }
-    quiz = new Group(digitVal, numVal, 1, mixVal, numVal);
+    quiz = new Group(digitVal, numVal, 1, mixVal, numVal * timegap[digitVal]);
     showTitle();
     quiz.generate(mixIndex);
     $("#go").addClass("disabled");
