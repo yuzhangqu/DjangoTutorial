@@ -2,10 +2,10 @@ var countStrs = ["③", "②", "①"];
 var timegap = [1, 0.8, 0.9, 1, 1.1];
 var mixStrs = ["纯加", "混合"];
 var headText = "闪电心算 -";
-var digitVal = 1;
-var numVal = 10;
-var mixIndex = 0;
-var mixVal = 0;
+var digitVal = 1; // 位数
+var numVal = 10; // 总笔数
+var mixIndex = 0; // 混合 OR 纯加
+var mixVal = 0; // 负数的笔数 
 
 function init() {
     showTitle();
@@ -55,7 +55,13 @@ function showQuiz(begin, end) {
         $(".card-text").text("");
         $("#go").removeClass("disabled");
         $(".fa").removeClass("fa-spin");
+        $(".card-text").removeClass("negative");
     } else {
+        if (quiz.nums[begin] < 0) {
+            $(".card-text").addClass("negative");
+        } else {
+            $(".card-text").removeClass("negative");
+        }
         $(".card-text").number(quiz.nums[begin]);
     }
 }
@@ -72,7 +78,13 @@ function showCount(begin, end) {
 function showAnswer() {
     if ($(".card-text").text().length > 0) {
         $(".card-text").text("");
+        $(".card-text").removeClass("negative");
     } else {
+        if (quiz.answer < 0) {
+            $(".card-text").addClass("negative");
+        } else {
+            $(".card-text").removeClass("negative");
+        }
         $(".card-text").number(quiz.answer);
     }
 }
