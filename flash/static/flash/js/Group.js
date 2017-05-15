@@ -83,7 +83,7 @@ Group.prototype.invalid = function() {
 
     for (var i = 1; i < this.total; i++) {
         sum += this.nums[i];
-        if (sum < 0 || old == this.nums[i]) {
+        if (sum < 0 || old == this.nums[i] || old + this.nums[i] == 0) {
             return true;
         }
         old = this.nums[i];
