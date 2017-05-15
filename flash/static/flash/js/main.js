@@ -39,8 +39,14 @@ function showQuiz(begin, end) {
         $(".card-text").text("");
         $("#go").removeClass("disabled");
         $("#go_icon").removeClass("fa-spin");
+        $(".card-text").removeClass("negative");
         flushButton();
     } else {
+        if (gObjs[gIndex].nums[begin] < 0) {
+            $(".card-text").addClass("negative");
+        } else {
+            $(".card-text").removeClass("negative");
+        }
         $(".card-text").number(gObjs[gIndex].nums[begin]);
     }
 }
@@ -57,7 +63,13 @@ function showCount(begin, end) {
 function showAnswer() {
     if ($(".card-text").text().length > 0) {
         $(".card-text").text("");
+        $(".card-text").removeClass("negative");
     } else {
+        if (gObjs[gIndex].answer < 0) {
+            $(".card-text").addClass("negative");
+        } else {
+            $(".card-text").removeClass("negative");
+        }
         $(".card-text").number(gObjs[gIndex].answer);
     }
 }
