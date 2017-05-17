@@ -32,8 +32,16 @@ function init() {
             mixVal = 0;
         }
     });
+
+    $(window).resize(adjustInit);
+    adjustInit();
 }
 
+function adjustInit() {
+    //设置.init的top和height
+    $(".init").css({ "top": $(".card-header").outerHeight() });
+    $(".init").css({ "height": $(".card-block").outerHeight() });
+}
 
 function repeat(begin, end, time, func) {
     return function() {
@@ -63,6 +71,20 @@ function showQuiz(begin, end) {
             $(".card-text").removeClass("negative");
         }
         $(".card-text").number(quiz.nums[begin]);
+    }
+}
+
+function showMask(begin, end) {
+    if (begin == end) {
+        $(".init span").removeClass("spin");
+        $(".init").removeClass("part1").removeClass("part2");
+    } else {
+        $(".init span").removeClass("spin");
+        $(".init").removeClass("part1").removeClass("part2");
+        $(".init").offset();
+        $(".init span").addClass("spin");
+        $(".init").addClass("part1");
+        setTimeout(function() { $(".init").addClass("part2"); }, 500);
     }
 }
 
@@ -103,4 +125,5 @@ function go() {
     $("#go").addClass("disabled");
     $(".fa").addClass("fa-spin");
     setTimeout(repeat(0, 3, 1000, showCount), 0);
+    setTimeout(repeat(0, 3, 1000, showMask), 0);
 }
