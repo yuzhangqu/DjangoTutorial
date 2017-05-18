@@ -8,29 +8,33 @@ var calcanswer;
 function init() {
     index = 0;
     quizArray = [];
-    quizArray.push(new Group(1, 7, 1, 0, 5.6));
-    quizArray.push(new Group(1, 7, 1, 3, 5.6));
-    quizArray.push(new Group(1, 9, 1, 0, 7.2));
-    quizArray.push(new Group(1, 9, 1, 4, 7.2));
-    quizArray.push(new Group(1, 10, 1, 0, 8));
-    quizArray.push(new Group(1, 10, 1, 5, 8));
-    quizArray.push(new Group(2, 7, 1, 0, 6.3));
-    quizArray.push(new Group(2, 7, 1, 3, 6.3));
-    quizArray.push(new Group(2, 9, 1, 0, 8.1));
-    quizArray.push(new Group(2, 9, 1, 4, 8.1));
-    quizArray.push(new Group(2, 10, 1, 0, 9));
-    quizArray.push(new Group(2, 10, 1, 5, 9));
+    quizArray.push(new Group(1, 10, 1, 0, 10));
+    quizArray.push(new Group(1, 10, 1, 5, 10));
+    quizArray.push(new Group(1, 15, 1, 0, 15));
+    quizArray.push(new Group(1, 15, 1, 7, 15));
+    quizArray.push(new Group(1, 20, 1, 0, 20));
+    quizArray.push(new Group(1, 20, 1, 10, 20));
+    quizArray.push(new Group(2, 5, 1, 0, 5));
+    quizArray.push(new Group(2, 5, 1, 2, 5));
+    quizArray.push(new Group(2, 10, 1, 0, 10));
+    quizArray.push(new Group(2, 10, 1, 5, 10));
     quizArray.push(new Group(3, 5, 1, 0, 5));
     quizArray.push(new Group(3, 5, 1, 2, 5));
     quizArray.push(new Group(3, 10, 1, 0, 10));
     quizArray.push(new Group(3, 10, 1, 5, 10));
-    var content = "第1题,第2题,第3题,第4题,第5题,第6题,第7题,第8题\r\n";
+    quizArray.push(new Group(4, 5, 1, 0, 5));
+    quizArray.push(new Group(4, 5, 1, 2, 5));
+    quizArray.push(new Group(4, 10, 1, 0, 10));
+    quizArray.push(new Group(4, 10, 1, 5, 10));
+    quizArray.push(new Group(5, 5, 1, 0, 5));
+    quizArray.push(new Group(5, 5, 1, 2, 5));
+    var content = "第1题,第2题,第3题,第4题,第5题,第6题,第7题,第8题,第9题,第10题\r\n";
     quizArray.forEach(function(item, index, array) {
         item.generate(1);
         content += item.answer;
-        if (index == 7) {
-            content += "\r\n第9题,第10题,第11题,第12题,第13题,第14题,第15题,第16题\r\n";
-        } else if (index != 15) {
+        if (index == 9) {
+            content += "\r\n第11题,第12题,第13题,第14题,第15题,第16题,第17题,第18题,第19题,第20题\r\n";
+        } else if (index != 19) {
             content += ",";
         }
     });
@@ -79,7 +83,13 @@ function showQuiz(begin, end) {
         $(".card-text").text("");
         $("#go").removeClass("disabled");
         $(".fa-play-circle-o").removeClass("fa-spin");
+        $(".card-text").removeClass("negative");
     } else {
+        if (quiz.nums[begin] < 0) {
+            $(".card-text").addClass("negative");
+        } else {
+            $(".card-text").removeClass("negative");
+        }
         $(".card-text").number(quiz.nums[begin]);
     }
 }
@@ -110,13 +120,19 @@ function showCount(begin, end) {
 function showAnswer() {
     if ($(".card-text").text().length > 0) {
         $(".card-text").text("");
+        $(".card-text").removeClass("negative");
     } else {
+        if (quiz.answer < 0) {
+            $(".card-text").addClass("negative");
+        } else {
+            $(".card-text").removeClass("negative");
+        }
         $(".card-text").number(quiz.answer);
     }
 }
 
 function showTitle() {
-    $(".card-header").text("武汉市珠心算选拔赛 - 第" + (index + 1) + "题");
+    $(".card-header").text("武汉市珠心算比赛 - 第" + (index + 1) + "题");
 }
 
 function readytogo() {
@@ -130,7 +146,7 @@ function go() {
         return false;
     }
 
-    if (index < 16) {
+    if (index < 20) {
         showTitle();
         quiz = quizArray[index];
         index++;
