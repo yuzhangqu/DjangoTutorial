@@ -48,13 +48,13 @@ function showQuiz(begin, end) {
         $(".card-text").text("");
         $("#go").removeClass("disabled");
         $("#go_icon").removeClass("fa-spin");
-        $(".card-text").removeClass("negative");
+        $(".card-text").removeClass("negative-hubei");
         flushButton();
     } else {
         if (gObjs[gIndex].nums[begin] < 0) {
-            $(".card-text").addClass("negative");
+            $(".card-text").addClass("negative-hubei");
         } else {
-            $(".card-text").removeClass("negative");
+            $(".card-text").removeClass("negative-hubei");
         }
         $(".card-text").number(gObjs[gIndex].nums[begin]);
     }
@@ -86,12 +86,12 @@ function showCount(begin, end) {
 function showAnswer() {
     if ($(".card-text").text().length > 0) {
         $(".card-text").text("");
-        $(".card-text").removeClass("negative");
+        $(".card-text").removeClass("negative-hubei");
     } else {
         if (gObjs[gIndex].answer < 0) {
-            $(".card-text").addClass("negative");
+            $(".card-text").addClass("negative-hubei");
         } else {
-            $(".card-text").removeClass("negative");
+            $(".card-text").removeClass("negative-hubei");
         }
         $(".card-text").number(gObjs[gIndex].answer);
     }
