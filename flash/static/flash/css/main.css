@@ -68,7 +68,7 @@
     margin-top: -15vw;
     overflow: hidden;
     -webkit-clip-path: inset(0 50% 0 0);
-    clip-path: circle(0 50% 0 0);
+    clip-path: inset(0 50% 0 0);
 }
 
 .init span:nth-of-type(2) {
