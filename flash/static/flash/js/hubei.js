@@ -24,7 +24,6 @@ function init() {
 function showQuiz(begin, end) {
     if (begin == end) {
         showtips();
-        $(".card-text").text("");
         $("#go").removeClass("disabled");
         $("#go_icon").removeClass("fa-spin");
         $(".card-text").removeClass("negative-hubei");

@@ -39,7 +39,6 @@ function init() {
 function showQuiz(begin, end) {
     if (begin == end) {
         showtips();
-        $(".card-text").text("");
         $("#go").removeClass("disabled");
         $(".fa").removeClass("fa-spin");
         $(".card-text").removeClass("negative");
