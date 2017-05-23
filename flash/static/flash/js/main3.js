@@ -80,7 +80,7 @@ function repeat(begin, end, time, func) {
 
 function showQuiz(begin, end) {
     if (begin == end) {
-        $(".card-text").text("");
+        showtips();
         $("#go").removeClass("disabled");
         $(".fa-play-circle-o").removeClass("fa-spin");
         $(".card-text").removeClass("negative");
@@ -114,6 +114,11 @@ function showCount(begin, end) {
         setTimeout(repeat(0, quiz.total, quiz.millisec / quiz.total, showQuiz), 0);
     } else {
         $(".card-text").text(countStrs[begin]);
+        if (begin < end - 1) {
+            beep1();
+        } else {
+            beep2();
+        }
     }
 }
 
@@ -148,6 +153,7 @@ function go() {
 
     if (index < 20) {
         showTitle();
+        removetips();
         quiz = quizArray[index];
         index++;
         $("#go").addClass("disabled");
@@ -179,4 +185,14 @@ function addin() {
 function calc() {
     $(".answer").addClass("whitetop");
     $(".answer").number(calcanswer);
+}
+
+function showtips() {
+    $(".card-text").css({ "font-size": "15vw" });
+    $(".card-text").text("请写答案");
+}
+
+function removetips() {
+    $(".card-text").text("");
+    $(".card-text").css({ "font-size": "25vw" });
 }
