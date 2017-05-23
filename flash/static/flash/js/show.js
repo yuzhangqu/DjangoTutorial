@@ -1,4 +1,3 @@
-var countStrs = ["③", "②", "①"];
 var index;
 var quizArray;
 var quiz;
@@ -8,20 +7,20 @@ var calcanswer;
 function init() {
     index = 0;
     quizArray = [];
-    quizArray.push(new Group(1, 10, 1, 0, 10));
-    quizArray.push(new Group(1, 10, 1, 5, 10));
-    quizArray.push(new Group(1, 15, 1, 0, 15));
-    quizArray.push(new Group(1, 15, 1, 7, 15));
-    quizArray.push(new Group(1, 20, 1, 0, 20));
-    quizArray.push(new Group(1, 20, 1, 10, 20));
-    quizArray.push(new Group(2, 5, 1, 0, 5));
-    quizArray.push(new Group(2, 5, 1, 2, 5));
-    quizArray.push(new Group(2, 10, 1, 0, 10));
-    quizArray.push(new Group(2, 10, 1, 5, 10));
-    quizArray.push(new Group(3, 5, 1, 0, 5));
-    quizArray.push(new Group(3, 5, 1, 2, 5));
-    quizArray.push(new Group(3, 10, 1, 0, 10));
-    quizArray.push(new Group(3, 10, 1, 5, 10));
+    quizArray.push(new Group(1, 10, 1, 0, 10 * 0.6));
+    quizArray.push(new Group(1, 10, 1, 5, 10 * 0.6));
+    quizArray.push(new Group(1, 15, 1, 0, 15 * 0.6));
+    quizArray.push(new Group(1, 15, 1, 7, 15 * 0.6));
+    quizArray.push(new Group(1, 20, 1, 0, 20 * 0.6));
+    quizArray.push(new Group(1, 20, 1, 10, 20 * 0.6));
+    quizArray.push(new Group(2, 5, 1, 0, 5 * 0.7));
+    quizArray.push(new Group(2, 5, 1, 2, 5 * 0.7));
+    quizArray.push(new Group(2, 10, 1, 0, 10 * 0.7));
+    quizArray.push(new Group(2, 10, 1, 5, 10 * 0.7));
+    quizArray.push(new Group(3, 5, 1, 0, 5 * 0.9));
+    quizArray.push(new Group(3, 5, 1, 2, 5 * 0.9));
+    quizArray.push(new Group(3, 10, 1, 0, 10 * 0.9));
+    quizArray.push(new Group(3, 10, 1, 5, 10 * 0.9));
     quizArray.push(new Group(4, 5, 1, 0, 5));
     quizArray.push(new Group(4, 5, 1, 2, 5));
     quizArray.push(new Group(4, 10, 1, 0, 10));
@@ -57,27 +56,6 @@ function init() {
     adjustInit();
 }
 
-function adjustInit() {
-    //设置.init的top和height
-    $(".init").css({ "top": $(".card-header").outerHeight() });
-    $(".init").css({ "height": $(".card-block").outerHeight() });
-}
-
-function repeat(begin, end, time, func) {
-    return function() {
-        func.call(null, begin, end);
-        if (begin < end) {
-            if (begin++ < end) {
-                setTimeout(repeat(begin, end, time, func), time);
-            }
-        } else if (begin > end) {
-            if (begin-- > end) {
-                setTimeout(repeat(begin, end, time, func), time);
-            }
-        } else {}
-    };
-}
-
 function showQuiz(begin, end) {
     if (begin == end) {
         showtips();
@@ -91,20 +69,6 @@ function showQuiz(begin, end) {
             $(".card-text").removeClass("negative");
         }
         $(".card-text").number(quiz.nums[begin]);
-    }
-}
-
-function showMask(begin, end) {
-    if (begin == end) {
-        $(".init span").removeClass("spin");
-        $(".init").removeClass("part1").removeClass("part2");
-    } else {
-        $(".init span").removeClass("spin");
-        $(".init").removeClass("part1").removeClass("part2");
-        $(".init").offset();
-        $(".init span").addClass("spin");
-        $(".init").addClass("part1");
-        setTimeout(function() { $(".init").addClass("part2"); }, 500);
     }
 }
 
@@ -153,7 +117,7 @@ function go() {
 
     if (index < 20) {
         showTitle();
-        removetips();
+        removetips(25);
         quiz = quizArray[index];
         index++;
         $("#go").addClass("disabled");
@@ -185,14 +149,4 @@ function addin() {
 function calc() {
     $(".answer").addClass("whitetop");
     $(".answer").number(calcanswer);
-}
-
-function showtips() {
-    $(".card-text").css({ "font-size": "15vw" });
-    $(".card-text").text("请写答案");
-}
-
-function removetips() {
-    $(".card-text").text("");
-    $(".card-text").css({ "font-size": "25vw" });
 }

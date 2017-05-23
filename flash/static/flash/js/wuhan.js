@@ -1,4 +1,3 @@
-var countStrs = ["③", "②", "①"];
 var timegap = [0, 0.6, 0.7, 0.9, 1];
 var mixStrs = ["纯加", "混合"];
 var headText = "闪电心算 -";
@@ -37,29 +36,9 @@ function init() {
     adjustInit();
 }
 
-function adjustInit() {
-    //设置.init的top和height
-    $(".init").css({ "top": $(".card-header").outerHeight() });
-    $(".init").css({ "height": $(".card-block").outerHeight() });
-}
-
-function repeat(begin, end, time, func) {
-    return function() {
-        func.call(null, begin, end);
-        if (begin < end) {
-            if (begin++ < end) {
-                setTimeout(repeat(begin, end, time, func), time);
-            }
-        } else if (begin > end) {
-            if (begin-- > end) {
-                setTimeout(repeat(begin, end, time, func), time);
-            }
-        } else {}
-    };
-}
-
 function showQuiz(begin, end) {
     if (begin == end) {
+        showtips();
         $(".card-text").text("");
         $("#go").removeClass("disabled");
         $(".fa").removeClass("fa-spin");
@@ -74,26 +53,17 @@ function showQuiz(begin, end) {
     }
 }
 
-function showMask(begin, end) {
-    if (begin == end) {
-        $(".init span").removeClass("spin");
-        $(".init").removeClass("part1").removeClass("part2");
-    } else {
-        $(".init span").removeClass("spin");
-        $(".init").removeClass("part1").removeClass("part2");
-        $(".init").offset();
-        $(".init span").addClass("spin");
-        $(".init").addClass("part1");
-        setTimeout(function() { $(".init").addClass("part2"); }, 500);
-    }
-}
-
 function showCount(begin, end) {
     if (begin == end) {
         $(".card-text").text("");
         setTimeout(repeat(0, quiz.total, quiz.millisec / quiz.total, showQuiz), 0);
     } else {
         $(".card-text").text(countStrs[begin]);
+        if (begin < end - 1) {
+            beep1();
+        } else {
+            beep2();
+        }
     }
 }
 
@@ -121,6 +91,7 @@ function go() {
     }
     quiz = new Group(digitVal, numVal, 1, mixVal, numVal * timegap[digitVal]);
     showTitle();
+    removetips(25);
     quiz.generate(mixIndex);
     $("#go").addClass("disabled");
     $(".fa").addClass("fa-spin");
