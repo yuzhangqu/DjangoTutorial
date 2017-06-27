@@ -20,16 +20,36 @@
                 <span class="spin"></span>
                 <span class="spin"></span>
             </div>
-            <h1 class="card-text" style="margin: auto; font-size: 20vw; font-family: 'Droid'; color: #FFF"></h1>
+            <h1 class="card-text" style="margin: auto; font-size: 25vw; font-family: 'Droid'; color: #FFF"></h1>
         </div>
         <div class="card-footer text-muted">
+            <div class="row mb-1">
+                <div class="col">
+                    <div id="digit_selector" class="btn-group btn-group-md">
+                        <button type="button" class="btn btn-outline-primary active" value="1">1位</button>
+                        <button type="button" class="btn btn-outline-primary" value="2">2位</button>
+                        <button type="button" class="btn btn-outline-primary" value="3">3位</button>
+                        <button type="button" class="btn btn-outline-primary" value="4">4位</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="num_selector" class="btn-group btn-group-md">
+                        <button type="button" class="btn btn-outline-success" value="5">5笔</button>
+                        <button type="button" class="btn btn-outline-success active" value="10">10笔</button>
+                        <button type="button" class="btn btn-outline-success" value="15">15笔</button>
+                        <button type="button" class="btn btn-outline-success" value="20">20笔</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="mix_selector" class="btn-group btn-group-md">
+                        <button type="button" class="btn btn-outline-warning active" value="0">纯加</button>
+                        <button type="button" class="btn btn-outline-warning" value="1">混合</button>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
-                    <button id="prev" type="button" class="btn btn-outline-danger disabled" style="font-size: 5vw" onclick="prevGroup();"><i class="fa fa-fast-backward fa-lg" aria-hidden="true"></i></button>
-                    <button id="prev_mini" type="button" class="btn btn-outline-primary disabled" style="font-size: 5vw" onclick="prevQuiz();"><i class="fa fa-backward fa-lg" aria-hidden="true"></i></button>
-                    <button id="go" type="button" class="btn btn-outline-success" style="font-size: 5vw; min-width: 5vw" onclick="go();"><i id="go_icon" class="fa fa-play-circle-o fa-lg" aria-hidden="true"></i></button>
-                    <button id="next_mini" type="button" class="btn btn-outline-primary" style="font-size: 5vw" onclick="nextQuiz();"><i class="fa fa-forward fa-lg" aria-hidden="true"></i></button>
-                    <button id="next" type="button" class="btn btn-outline-danger" style="font-size: 5vw" onclick="nextGroup();"><i class="fa fa-fast-forward fa-lg" aria-hidden="true"></i></button>
+                    <button id="go" type="button" class="btn btn-outline-danger" onclick="go();"><i class="fa fa-3x fa-play-circle-o" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
@@ -41,7 +61,7 @@
     <script src="{% static 'flash/js/jquery.number.min.js' %}"></script>
     <script src="{% static 'flash/js/Group.js' %}"></script>
     <script src="{% static 'flash/js/main.js' %}"></script>
-    <script src="{% static 'flash/js/hubei.js' %}"></script>
+    <script src="{% static 'flash/js/wuhan.js' %}"></script>
     <script src="{% static 'flash/js/beep.js' %}"></script>
 </body>
 
