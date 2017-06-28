@@ -101,7 +101,7 @@ function showAnswer() {
 }
 
 function showTitle() {
-    $(".card-header").text("武汉市珠心算比赛 - 第" + (index + 1) + "题");
+    $(".card-header").text("武汉市珠心算比赛视频心算 - 第" + (index + 1) + "题");
 }
 
 function readytogo() {
