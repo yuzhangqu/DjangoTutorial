@@ -109,6 +109,7 @@ function listen() {
     $("#go_listen").show();
     $(".card-block").removeAttr("onclick");
     removetips(8);
+    listenIndex = 1;
 }
 
 function go_listen() {
