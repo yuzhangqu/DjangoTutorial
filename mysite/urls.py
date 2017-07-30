@@ -21,6 +21,7 @@ urlpatterns = [
 	url(r'^wuhan/', views.wuhan, name='wuhan'),
 	url(r'^hubei/', views.hubei, name='hubei'),
 	url(r'^show/', views.show, name='show'),
+    url(r'^single/', views.single, name='single'),
 	url(r'^flash/', include('flash.urls')),
     url(r'^admin/', admin.site.urls),
 ]

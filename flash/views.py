@@ -12,3 +12,6 @@ def hubei(request):
 
 def show(request):
 	return render(request, 'flash/show.html')
+
+def single(request):
+	return render(request, 'flash/single.html')
