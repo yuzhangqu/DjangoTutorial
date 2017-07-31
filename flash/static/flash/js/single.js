@@ -111,7 +111,7 @@ function go() {
     if ($("#go").hasClass("disabled")) {
         return false;
     }
-    quiz = new Single(numVal, numVal * 0.3);
+    quiz = new Single(numVal, numVal * 0.4);
     quiz.generate();
     showTitle();
     removetips(25);
