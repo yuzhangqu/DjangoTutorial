@@ -1,10 +1,10 @@
-var timegap = [0, 0.6, 0.7, 0.9, 1];
+var timegap = [0, 0.7, 0.8, 0.9, 1];
 var mixStrs = ["纯加", "混合"];
 var headText = "闪电心算 -";
 var digitVal = 1; // 位数
 var numVal = 10; // 总笔数
 var mixIndex = 0; // 混合 OR 纯加
-var mixVal = 0; // 负数的笔数 
+var mixVal = 0; // 负数的笔数
 
 function init() {
     showTitle();
