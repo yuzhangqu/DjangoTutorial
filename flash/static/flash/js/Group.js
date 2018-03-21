@@ -92,19 +92,19 @@ Group.prototype.invalid = function() {
 }
 
 function Group1() {
-    Group.call(this, 2, 5, 3, 2, 5);
+    Group.call(this, 2, 5, 3, 2, 4);
 }
 Group1.prototype = Object.create(Group.prototype);
 Group1.prototype.constructor = Group1;
 
 function Group2() {
-    Group.call(this, 2, 10, 3, 3, 10);
+    Group.call(this, 2, 10, 3, 3, 7);
 }
 Group2.prototype = Object.create(Group.prototype);
 Group2.prototype.constructor = Group2;
 
 function Group3() {
-    Group.call(this, 2, 15, 3, 5, 15);
+    Group.call(this, 2, 15, 3, 5, 10);
 }
 Group3.prototype = Object.create(Group.prototype);
 Group3.prototype.constructor = Group3;
@@ -122,7 +122,7 @@ Group5.prototype = Object.create(Group.prototype);
 Group5.prototype.constructor = Group5;
 
 function Group6() {
-    Group.call(this, 3, 15, 3, 5, 15);
+    Group.call(this, 3, 15, 3, 5, 13);
 }
 Group6.prototype = Object.create(Group.prototype);
 Group6.prototype.constructor = Group6;
@@ -140,7 +140,7 @@ Group8.prototype = Object.create(Group.prototype);
 Group8.prototype.constructor = Group8;
 
 function Group9() {
-    Group.call(this, 4, 15, 3, 5, 15);
+    Group.call(this, 4, 15, 3, 5, 13);
 }
 Group9.prototype = Object.create(Group.prototype);
 Group9.prototype.constructor = Group9;
@@ -158,7 +158,7 @@ Group11.prototype = Object.create(Group.prototype);
 Group11.prototype.constructor = Group11;
 
 function Group12() {
-    Group.call(this, 5, 15, 2, 5, 15);
+    Group.call(this, 5, 15, 2, 5, 13);
 }
 Group12.prototype = Object.create(Group.prototype);
 Group12.prototype.constructor = Group12;
@@ -170,13 +170,13 @@ Group13.prototype = Object.create(Group.prototype);
 Group13.prototype.constructor = Group13;
 
 function Group14() {
-    Group.call(this, 6, 15, 2, 5, 15);
+    Group.call(this, 6, 15, 2, 5, 13);
 }
 Group14.prototype = Object.create(Group.prototype);
 Group14.prototype.constructor = Group14;
 
 function Group15() {
-    Group.call(this, 6, 20, 2, 7, 20);
+    Group.call(this, 6, 20, 2, 7, 16);
 }
 Group15.prototype = Object.create(Group.prototype);
 Group15.prototype.constructor = Group15;
