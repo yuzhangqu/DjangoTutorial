@@ -7,6 +7,12 @@ var calcanswer;
 function init() {
     index = 0;
     quizArray = [];
+    quizArray.push(new Group(1, 5, 1, 0, 4));
+    quizArray.push(new Group(1, 5, 1, 2, 4));
+    quizArray.push(new Group(1, 10, 1, 0, 7));
+    quizArray.push(new Group(1, 10, 1, 3, 7));
+    quizArray.push(new Group(1, 15, 1, 0, 10));
+    quizArray.push(new Group(1, 15, 1, 5, 10));
     quizArray.push(new Group(2, 5, 1, 0, 4));
     quizArray.push(new Group(2, 5, 1, 2, 4));
     quizArray.push(new Group(2, 10, 1, 0, 7));
@@ -25,15 +31,15 @@ function init() {
     quizArray.push(new Group(4, 10, 1, 3, 10));
     quizArray.push(new Group(4, 15, 1, 0, 13));
     quizArray.push(new Group(4, 15, 1, 5, 13));
-    quizArray.push(new Group(5, 5, 1, 0, 5));
-    quizArray.push(new Group(5, 5, 1, 2, 5));
-    var content = "第1题,第2题,第3题,第4题,第5题,第6题,第7题,第8题,第9题,第10题\r\n";
+    var content = "第1题,第2题,第3题,第4题,第5题,第6题,第7题,第8题\r\n";
     quizArray.forEach(function(item, index, array) {
         item.generate(1);
         content += item.answer;
-        if (index == 9) {
-            content += "\r\n第11题,第12题,第13题,第14题,第15题,第16题,第17题,第18题,第19题,第20题\r\n";
-        } else if (index != 19) {
+        if (index == 7) {
+            content += "\r\n第9题,第10题,第11题,第12题,第13题,第14题,第15题,第16题\r\n";
+        } else if (index == 15) {
+            content += "\r\n第17题,第18题,第19题,第20题,第21题,第22题,第23题,第24题\r\n";
+        } else if (index != 23) {
             content += ",";
         }
     });
