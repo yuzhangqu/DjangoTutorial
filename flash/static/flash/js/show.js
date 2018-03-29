@@ -121,7 +121,7 @@ function go() {
         return false;
     }
 
-    if (index < 20) {
+    if (index < 24) {
         showTitle();
         removetips(25);
         quiz = quizArray[index];
