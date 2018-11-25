@@ -1,11 +1,11 @@
-var timegap = [0, 6, 7, 8, 9];  // 0.几秒
+var timegap = [0, 6, 7, 9, 10, 12];  // 0.几秒
 var mixStrs = ["纯加", "混合"];
 var headText = "闪电心算 -";
 var digitVal = 1; // 位数
 var numVal = 10; // 总笔数
 var mixIndex = 0; // 混合 OR 纯加
 var mixVal = 0; // 负数的笔数
-var speed = timegap[1];  // 一笔几秒
+var speed = timegap[1];  // 一笔0.几秒
 
 function init() {
     showTitle();
@@ -100,7 +100,7 @@ function go() {
     setTimeout(repeat(0, 3, 1000, showMask), 0);
 }
 
-function slowdown() {
+function speedup() {
     if ($("#go").hasClass("disabled")) {
         return false;
     }
@@ -112,7 +112,7 @@ function slowdown() {
     showTitle();
 }
 
-function speedup() {
+function slowdown() {
     if ($("#go").hasClass("disabled")) {
         return false;
     }
