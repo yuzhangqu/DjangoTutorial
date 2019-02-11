@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'pad17chn*&gj(q)#94bi7%p9^wleg!db!-=4g0v78#%3!%igw*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "172.168.1.1", "www.qingling.org"]
 
