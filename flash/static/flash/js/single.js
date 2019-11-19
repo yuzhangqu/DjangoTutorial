@@ -42,7 +42,7 @@ Single.prototype.generate = function() {
     }
 }
 
-var timegap = [0, 0.6, 0.7, 0.9, 1];
+var timegap = [0, 6, 7, 9, 10, 12];
 var headText = "直加直减闪电心算 -";
 var numVal = 10; // 总笔数
 var speed = timegap[1];  // 一笔0.几秒
