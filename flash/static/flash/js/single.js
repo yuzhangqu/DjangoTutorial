@@ -42,7 +42,7 @@ Single.prototype.generate = function() {
     }
 }
 
-var timegap = [0, 6, 7, 9, 10, 12];
+var timegap = [0, 6, 7, 9, 10, 12];  // 0.几秒
 var headText = "直加直减闪电心算 -";
 var numVal = 10; // 总笔数
 var speed = timegap[1];  // 一笔0.几秒
@@ -112,7 +112,7 @@ function go() {
     if ($("#go").hasClass("disabled")) {
         return false;
     }
-    quiz = new Single(numVal, numVal, 1, 0, numVal* speed / 10);
+    quiz = new Single(numVal, numVal * speed / 10);
     quiz.generate();
     showTitle();
     removetips(25);
