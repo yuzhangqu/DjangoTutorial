@@ -112,7 +112,7 @@ function go() {
     if ($("#go").hasClass("disabled")) {
         return false;
     }
-    quiz = new Single(numVal, numVal * speed / 10);
+    quiz = new Single(numVal, numVal, 1, 0, numVal* speed / 10);
     quiz.generate();
     showTitle();
     removetips(25);
