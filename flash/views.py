@@ -15,3 +15,12 @@ def show(request):
 
 def single(request):
 	return render(request, 'flash/single.html')
+
+def handler404(request):
+    return render(request, "flash/404.html", status=404)
+
+def report(request):
+    ctx = {}
+    if request.POST:
+        ctx['result'] = '我们已收到您的反馈!'
+    return render(request, "flash/404.html", ctx)
