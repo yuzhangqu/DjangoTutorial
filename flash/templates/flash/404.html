@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>页面不存在</title>
+
+	<!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="{% static 'flash/css/404.css' %}" />
+</head>
+
+<body>
+
+	<div id="notfound">
+		<div class="notfound-bg"></div>
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>404</h1>
+			</div>
+			<h2>Oops! Page Not Found</h2>
+			<form class="notfound-search" action="/report" method="post">
+                {% csrf_token %}
+				<input type="text" placeholder="描述你的问题..." name="content">
+				<button type="submit">反馈</button>
+			</form>
+            <h2>{{ result }}</h2>
+			<a href="/wuhan">武汉市珠心算训练</a>
+		</div>
+	</div>
+
+</body>
+
+</html>
