@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "Numbers";
+    src: url('../fonts/Numbers.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .fullheight {
     height: 100%;
 }
