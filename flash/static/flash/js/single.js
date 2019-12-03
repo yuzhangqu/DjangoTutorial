@@ -6,39 +6,42 @@ function Single(total, time) {
 }
 
 Single.prototype.nextNum = function(old) {
-    var ok = false;
     var temp = 0;
     do {
-        temp = Math.floor(Math.random() * 10);
-        if (temp == 0 || temp == old) {
-            ok = false;
-        }
-        else{
-            if (this.answer + temp < 10) {
-                ok = true;
-            }
-            else if (this.answer >= temp) {
-                ok = true;
-                temp = 0 - temp;
+        if (this.answer < 5) {
+            if (this.answer == 0 || randomInt(0, 1)) {
+                temp = randomInt(0, 4 - this.answer);
+                if (temp == 0 || randomInt(0, 1)) {
+                    temp += 5;
+                }
             }
             else {
-                ok = false;
+                temp = 0 - randomInt(1, this.answer);
             }
         }
-    } while (!ok)
+        else {
+            if (this.answer == 9 || randomInt(0, 1)) {
+                temp = 0 - randomInt(0, this.answer - 5);
+                if (temp == 0 || randomInt(0, 1)) {
+                    temp -= 5;
+                }
+            }
+            else {
+                temp = randomInt(1, 9 - this.answer);
+            }
+        }
+    } while (temp == old)
     
     return temp;
 }
 
 Single.prototype.generate = function() {
-    var index = 0;
     var old = 0;
-
     for (var i = 0; i < this.total; i++) {
         var temp = this.nextNum(old);
-        old = temp;
-        this.nums[index++] = temp;
+        this.nums[i] = temp;
         this.answer += temp;
+        old = temp;
     }
 }
 
