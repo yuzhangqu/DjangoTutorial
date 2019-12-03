@@ -9,7 +9,7 @@ Single.prototype.nextNum = function(old) {
     var temp = 0;
     do {
         if (this.answer < 5) {
-            if (this.answer == 0 || randomInt(0, 1)) {
+            if (randomInt(0, 8 - this.answer) >= this.answer) {
                 temp = randomInt(0, 4 - this.answer);
                 if (temp == 0 || randomInt(0, 1)) {
                     temp += 5;
@@ -20,7 +20,7 @@ Single.prototype.nextNum = function(old) {
             }
         }
         else {
-            if (this.answer == 9 || randomInt(0, 1)) {
+            if (randomInt(0, this.answer - 1) >= 9 - this.answer) {
                 temp = 0 - randomInt(0, this.answer - 5);
                 if (temp == 0 || randomInt(0, 1)) {
                     temp -= 5;
