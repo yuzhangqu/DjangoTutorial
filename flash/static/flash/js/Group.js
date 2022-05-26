@@ -1,4 +1,4 @@
-function Group(digits, total, mix, negative, time) {
+function Group(digits, total, mix, negative, time, isSame = 0) {
     this.digits = digits;
     this.total = total;
     this.mix = mix;
@@ -6,6 +6,7 @@ function Group(digits, total, mix, negative, time) {
     this.nums = new Array(total);
     this.generator = new Array();
     this.millisec = time * 1000;
+    this.isSame = isSame;
     this.answer = 0;
 }
 
@@ -42,9 +43,20 @@ Group.prototype.generate = function(qIndex) {
 
 Group.prototype.nextPositiveInt = function() {
     if (this.generator.length == 0) {
-        for (var i = Math.pow(10, this.digits - 1); i < Math.pow(10, this.digits); i++) {
-            this.generator.push(i);
+        if (this.isSame && this.total < 10) {
+            for (var i = 1; i < 10; i++) {
+                var num = i;
+                for (var j = 1; j < this.digits; j++) {
+                    num = num * 10 + i;
+                }
+                this.generator.push(num);
+            }
+        } else {
+            for (var i = Math.pow(10, this.digits - 1); i < Math.pow(10, this.digits); i++) {
+                this.generator.push(i);
+            }
         }
+        
         for (var i = this.generator.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
             var temp = this.generator[i];

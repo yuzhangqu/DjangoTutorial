@@ -2,9 +2,10 @@ var timegap = [0, 6, 7, 9, 10, 12];  // 0.几秒
 var mixStrs = ["纯加", "混合"];
 var headText = "闪电心算 -";
 var digitVal = 1; // 位数
-var numVal = 10; // 总笔数
+var numVal = 3; // 总笔数
 var mixIndex = 0; // 混合 OR 纯加
 var mixVal = 0; // 负数的笔数
+var isSame = 0; // 相同
 var speed = timegap[1];  // 一笔0.几秒
 
 function init() {
@@ -32,6 +33,12 @@ function init() {
         } else {
             mixVal = 0;
         }
+    });
+
+    $("#same_selector button").click(function() {
+        $(this).addClass("active").siblings().removeClass("active");
+        isSame = parseInt($(this).attr("value"));
+        showTitle();
     });
 
     $(window).resize(adjustInit);
@@ -63,7 +70,7 @@ function showCount(begin, end) {
         if (begin < end - 1) {
             beep1();
         } else {
-            beep2();
+            beep1();
         }
     }
 }
@@ -90,12 +97,12 @@ function go() {
     if ($("#go").hasClass("disabled")) {
         return false;
     }
-    quiz = new Group(digitVal, numVal, 1, mixVal, numVal * speed / 10);
+    quiz = new Group(digitVal, numVal, 1, mixVal, numVal * speed / 10, isSame);
     showTitle();
     removetips(25);
     quiz.generate(mixIndex);
     $("#go").addClass("disabled");
-    $(".fa").addClass("fa-spin");
+    $(".fa-play-circle-o").addClass("fa-spin");
     setTimeout(repeat(0, 3, 1000, showCount), 0);
     setTimeout(repeat(0, 3, 1000, showMask), 0);
 }
@@ -122,4 +129,12 @@ function slowdown() {
     }
     speed += 1;
     showTitle();
+}
+
+function gameover() {
+    window.close();
+}
+
+function switchpage() {
+    window.location.href = "single.html";
 }
