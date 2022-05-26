@@ -130,11 +130,3 @@ function slowdown() {
     speed += 1;
     showTitle();
 }
-
-function gameover() {
-    window.close();
-}
-
-function switchpage() {
-    window.location.href = "single.html";
-}
